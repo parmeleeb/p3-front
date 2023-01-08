@@ -74,6 +74,27 @@ export class Warehouse {
     }
   }
 
+  public changeItemName(id:number, name:string) {
+    for (let item of this.items) {
+      if(item.getItemId() == id)
+        item.setItemName(name);
+    }
+  }
+
+  public changeItemDescription(id:number, description:string) {
+    for (let item of this.items) {
+      if(item.getItemId() == id)
+        item.setItemDescription(description);
+    }
+  }
+
+  public changeItemSize(id:number, size:number) {
+    for (let item of this.items) {
+      if(item.getItemId() == id)
+        item.setItemSize(size);
+    }
+  }
+
   public clone() {
     return new Warehouse(this.getId(),
                          this.getName(),

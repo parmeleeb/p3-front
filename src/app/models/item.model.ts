@@ -8,7 +8,7 @@ export class Item {
     this.setItemId(itemId);
     this.setItemName(itemName);
     this.setItemDescription(itemDescription);
-    this.setSize(size);
+    this.setItemSize(size);
   }
 
   public getItemId() {
@@ -35,11 +35,11 @@ export class Item {
     this.itemDescription = itemDescription;
   }
 
-  public getSize() {
+  public getItemSize() {
     return this.size;
   }
 
-  public setSize(size:number){
+  public setItemSize(size:number){
     this.size = size;
   }
 
@@ -47,6 +47,6 @@ export class Item {
     return new Item(this.getItemId(),
                     this.getItemName(),
                     this.getItemDescription(),
-                    this.getSize());
+                    this.getItemSize());
   }
 }

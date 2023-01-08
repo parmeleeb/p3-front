@@ -31,6 +31,15 @@ export class WarehousesService {
     this.warehousesBS.next(this.warehouses);
   }
 
+  private findWarehouse(id:number) {
+    for (let warehouse of this.warehouses) {
+      if (warehouse.getId() == id)
+        return warehouse;
+    }
+    return null;
+  }
+
+
   /**
    *
    *  CRUD FUNCTIONS
@@ -50,11 +59,11 @@ export class WarehousesService {
   }
 
   AddWarehouseItem(id:number, item:Item) {
-    for (let warehouse of this.warehouses) {
-      if(warehouse.getId() == id)
-        warehouse.addItem(item);
+    let warehouse = this.findWarehouse(id);
+    if(warehouse) {
+      warehouse.addItem(item);
+      this.update();
     }
-    this.update();
   }
 
 
@@ -65,10 +74,9 @@ export class WarehousesService {
   }
 
   getWarehouseById(id:number) {
-    for (let warehouse of this.warehouses) {
-      if(warehouse.getId() == id)
-        return warehouse.clone();
-    }
+    let warehouse = this.findWarehouse(id);
+    if(warehouse)
+      return warehouse.clone();
     return null;
   }
 
@@ -81,30 +89,66 @@ export class WarehousesService {
     return warehouses;
   }
 
+  getAllItemsInWarehouse(id:number) {
+    let warehouse = this.findWarehouse(id);
+    if(warehouse)
+      return warehouse.getItems();
+    return null;
+  }
+
+  getItemById(warehouseId:number, itemId:number) {
+    let warehouse = this.findWarehouse(warehouseId);
+    if(warehouse) {
+      for(let item of warehouse.getItems()) {
+        if(item.getItemId() == itemId)
+          return item.clone();
+      }
+    }
+    return null;
+  }
+
 
   // (U)pdate
 
   changeWarehouseName(id:number, name:string) {
-    for (let warehouse of this.warehouses) {
-      if(warehouse.getId() == id)
-        warehouse.setName(name);
-    }
+    let warehouse = this.findWarehouse(id);
+    if(warehouse)
+      warehouse.setName(name);
     this.update();
   }
 
   changeWarehouseLocation(id:number, location:Location) {
-    for (let warehouse of this.warehouses) {
-      if(warehouse.getId() == id)
-        warehouse.setLocation(location);
-    }
+    let warehouse = this.findWarehouse(id);
+    if(warehouse)
+      warehouse.setLocation(location);
     this.update();
   }
 
   changeWarehouseCapacity(id:number, itemCapacity:number) {
-    for (let warehouse of this.warehouses) {
-      if(warehouse.getId() == id)
-        warehouse.setItemCapacity(itemCapacity);
-    }
+    let warehouse = this.findWarehouse(id);
+    if(warehouse)
+      warehouse.setItemCapacity(itemCapacity);
+    this.update();
+  }
+
+  changeItemName(warehouseId:number, itemId:number, itemName:string) {
+    let warehouse = this.findWarehouse(warehouseId);
+    if(warehouse)
+      warehouse.changeItemName(itemId, itemName);
+    this.update();
+  }
+
+  changeItemDescription(warehouseId:number, itemId:number, itemDescription:string) {
+    let warehouse = this.findWarehouse(warehouseId);
+    if(warehouse)
+      warehouse.changeItemDescription(itemId, itemDescription);
+    this.update();
+  }
+
+  changeItemSize(warehouseId:number, itemId:number, itemSize:number) {
+    let warehouse = this.findWarehouse(warehouseId);
+    if(warehouse)
+      warehouse.changeItemSize(itemId, itemSize);
     this.update();
   }
 
@@ -120,18 +164,16 @@ export class WarehousesService {
   }
 
   deleteWarehouseItem(warehouseId:number, itemId:number) {
-    for (let warehouse of this.warehouses) {
-      if(warehouse.getId() == warehouseId)
-        warehouse.deleteItem(itemId);
-    }
+    let warehouse = this.findWarehouse(warehouseId);
+    if(warehouse)
+      warehouse.deleteItem(itemId);
     this.update();
   }
 
   deleteAllWarehouseItems(id:number) {
-    for (let warehouse of this.warehouses) {
-      if(warehouse.getId() == id)
-        warehouse.setItems([]);
-    }
+    let warehouse = this.findWarehouse(id);
+    if(warehouse)
+      warehouse.setItems([]);
     this.update();
   }
 }
