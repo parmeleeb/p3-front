@@ -4,7 +4,7 @@ export class Location {
   private state: string = '';
   private postalCode: number = -1;
 
-  public Location(streetAddress:string, city:string,  state:string, postalCode:number) {
+  constructor(streetAddress:string, city:string,  state:string, postalCode:number) {
     this.setStreetAddress(streetAddress);
     this.setCity(city);
     this.setState(state);
@@ -41,5 +41,12 @@ export class Location {
 
   public setPostalCode(postalCode:number) {
     this.postalCode = postalCode;
+  }
+
+  public clone() {
+    return new Location(this.getStreetAddress(),
+                        this.getCity(),
+                        this.getState(),
+                        this.getPostalCode());
   }
 }

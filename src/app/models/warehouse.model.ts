@@ -4,11 +4,11 @@ import { Item } from "./item.model";
 export class Warehouse {
   private id: number = -1;
   private name: string = '';
-  private location: Location = new Location();
+  private location: Location = new Location("","","",-1);
   private itemCapacity: number = -1;
   private items: Item[] = [];
 
-  public Warehouse(id:number, name:string, location:Location, itemCapacity:number, items:Item[]) {
+  constructor(id:number, name:string, location:Location, itemCapacity:number, items:Item[]) {
     this.setId(id);
     this.setName(name);
     this.setLocation(location);
@@ -33,11 +33,11 @@ export class Warehouse {
   }
 
   public getLocation() {
-    return this.location;
+    return this.location.clone();
   }
 
   public setLocation(location:Location) {
-    this.location = location;
+    this.location = location.clone();
   }
 
   public getItemCapacity() {
@@ -49,10 +49,36 @@ export class Warehouse {
   }
 
   public getItems() {
-    return this.items;
+    let items = [];
+    for(let item of this.items) {
+      items.push(item.clone());
+    }
+    return items;
   }
 
   public setItems(items:Item[]) {
-    this.items = items;
+    this.items = [];
+    for (let item of items) {
+      this.items.push(item.clone());
+    }
+  }
+
+  public addItem(item:Item) {
+    this.items.push(item.clone());
+  }
+
+  public deleteItem(id:number) {
+    for (let index in this.items) {
+      if(this.items[index].getItemId() == id)
+        this.items.splice(Number(index), 1);
+    }
+  }
+
+  public clone() {
+    return new Warehouse(this.getId(),
+                         this.getName(),
+                         this.getLocation(),
+                         this.getItemCapacity(),
+                         this.getItems());
   }
 }

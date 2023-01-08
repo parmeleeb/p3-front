@@ -4,7 +4,7 @@ export class Item {
   private itemDescription: string = '';
   private size: number = -1;
 
-  public Item(itemId:number, itemName:string, itemDescription:string, size:number) {
+  constructor(itemId:number, itemName:string, itemDescription:string, size:number) {
     this.setItemId(itemId);
     this.setItemName(itemName);
     this.setItemDescription(itemDescription);
@@ -41,5 +41,12 @@ export class Item {
 
   public setSize(size:number){
     this.size = size;
+  }
+
+  public clone() {
+    return new Item(this.getItemId(),
+                    this.getItemName(),
+                    this.getItemDescription(),
+                    this.getSize());
   }
 }
