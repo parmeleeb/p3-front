@@ -1,0 +1,10 @@
+#footer-container{
+    background-color: black;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+h2{
+    color: white;
+}

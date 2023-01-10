@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+}
+
+#webpage{
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 13% 74% 13%;
+}
+
+#body{
+    background-color: rgba(232,85,32,255);
+}

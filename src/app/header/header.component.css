@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+}
+
+.title{
+    display: flex;
+    float: none;
+    justify-content: center;
+}
+
+#header-title{
+    justify-content: center;
+}
+
+#header-background{
+    background-color: rgba(232,85,32,255);
+    width: 100vw;
+    margin-left: 0;
+}
+
+div{
+    justify-content: center;
+    align-content: center;
+}
+
+h1{
+float: left;
+}
+
+.primary{
+    background-color: rgba(232,85,32,255);
+}
+
+/* Primary color= rgba(232,85,32,255) */
+/* Secondary color = rgba(232,85,32,255) */
