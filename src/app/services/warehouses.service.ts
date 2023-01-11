@@ -16,10 +16,71 @@ export class WarehousesService {
    *
    */
 
-  private warehouses: Warehouse[] = [];
-  private warehousesBS = new BehaviorSubject<Warehouse[]>([]);
+  private warehouses: Warehouse[] = [
+    new Warehouse(1,
+                  "SampleWH",
+                  new Location("123 ABC St",
+                               "Pensacola",
+                               "FL",
+                               12345),
+                  100,
+                  [new Item(1,
+                            "SampleItem",
+                            "This is a sample item.",
+                            1),
+                   new Item(2,
+                            "SampleItem2",
+                            "This is a sample item again",
+                            1)]),
+    new Warehouse(2,
+                  "AnotherSampleWH",
+                  new Location("456 ZXY St",
+                               "Pensacola",
+                               "FL",
+                               12345),
+                  10,
+                  [new Item(100,
+                            "SampleItem3",
+                            "This is a sample item.",
+                            1),
+                    new Item(200,
+                            "SampleItem4",
+                            "This is a sample item again",
+                            1)])];
+  private warehousesBS = new BehaviorSubject<Warehouse[]>([
+    new Warehouse(1,
+                  "SampleWH",
+                  new Location("123 ABC St",
+                              "Pensacola",
+                              "FL",
+                              12345),
+                  100,
+                  [new Item(1,
+                            "SampleItem",
+                            "This is a sample item.",
+                            1),
+                  new Item(2,
+                            "SampleItem2",
+                            "This is a sample item again",
+                            1)]),
+    new Warehouse(2,
+                  "AnotherSampleWH",
+                  new Location("456 ZXY St",
+                              "Pensacola",
+                              "FL",
+                              12345),
+                  10,
+                  [new Item(100,
+                            "SampleItem3",
+                            "This is a sample item.",
+                            1),
+                    new Item(200,
+                            "SampleItem4",
+                            "This is a sample item again",
+                            1)])]);
   public warehouseObservable = this.warehousesBS.asObservable();
 
+  // All of this is mock data and will be deleted once the API is implemented
 
   /**
    *
