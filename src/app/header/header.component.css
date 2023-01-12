@@ -1,11 +1,14 @@
 *{
     margin: 0;
+
 }
 
 .title{
     display: flex;
     float: none;
     justify-content: center;
+    font-family: "Righteous";
+    font-weight: bold;
 }
 
 #header-title{
@@ -13,11 +16,14 @@
 }
 
 #header-background{
-    background-color: rgba(232,85,32,255);
+
     width: 100vw;
     margin-left: 0;
+    height: 100%;
+    background-color: rgb(209, 73, 32);
 }
-
+/*
+    background-color: rgba(232,85,332,255); */
 div{
     justify-content: center;
     align-content: center;

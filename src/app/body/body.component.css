@@ -8,9 +8,10 @@ div{
 
 
 #body-container{
+    display: inline-block;
     display: grid;
     grid-template-columns: 25% 75%;
-    /* margin-top: .25em; */
+    margin-top: .25em;
     background-color: rgba(232,85,32,255);
 }
 

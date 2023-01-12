@@ -5,9 +5,23 @@
 #webpage{
     display: grid;
     height: 100vh;
-    grid-template-rows: 13% 74% 13%;
+    grid-template-rows: 11% 83% 6%;
+    grid-template-columns: 12.5% 87.5%; /* This is the same as 1fr 7fr but I'm leaving it as percents for consistency */
+    background-color: rgba(232,85,32,255);
+}
+
+#header{
+    grid-column: span 2;
+}
+
+#nav{
+    grid-column: span 1;
 }
 
 #body{
-    background-color: rgba(232,85,32,255);
+    grid-column: span 1;
+}
+
+#footer{
+  grid-column: span 2;
 }
