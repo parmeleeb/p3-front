@@ -1,8 +1,8 @@
 <div id="body-container">
-    <div id="notice-container">
+    <!-- <div id="notice-container">
         <div id="notice-board">
             <h2 class="h2" id="notice-heading">Notices</h2>
-            <ul id="notice-list">
+            <ul ng id="notice-list">
                 <li>
                     First item
                 </li>
@@ -14,10 +14,27 @@
                 </li>
             </ul>
         </div>
-    </div>
-    <div id="featured-warehouses">
-
+    </div> -->
+    <div id="featured-warehouses"> <!-- this styling is temporary to just be able to see the data -->
         <h1 class="display-4">Featured Warehouses</h1>
+
+        <div *ngFor="let warehouse of warehouseList">
+            <div>{{ warehouse.getId() }}</div>
+            <div>{{ warehouse.getName() }}</div>
+            <div>{{ warehouse.getItemCapacity() }}</div>
+            <div>
+                <span>{{ warehouse.getLocation().getStreetAddress() }}</span>
+                <span>{{ warehouse.getLocation().getCity() }},</span>
+                <span>{{ warehouse.getLocation().getState() }}</span>
+                <span>{{ warehouse.getLocation().getPostalCode() }}</span>
+            </div>
+            <ng-container *ngFor="let item of warehouse.getItems()">
+                <div>{{ item.getItemId() }}</div>
+                <div>{{ item.getItemName() }}</div>
+                <div>{{ item.getItemSize() }}</div>
+                <div>{{ item.getItemDescription() }}</div>
+            </ng-container>
+          </div>
     </div>
 
 </div>

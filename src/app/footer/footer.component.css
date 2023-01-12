@@ -6,5 +6,10 @@
 }
 
 h2{
-    color: white;
+    color: darkgray;
+    font-family: "Righteous";
+}
+
+#footer-subtext{
+  font-size: x-small;
 }

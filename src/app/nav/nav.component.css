@@ -1,0 +1,10 @@
+#nav-container{
+  background-color: lightgray;
+  height: 100%;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-right: 3px black solid;
+  border-top: 3px black solid;
+  border-bottom: 3px black solid;
+  padding-left: 1em;
+}
