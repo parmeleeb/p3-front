@@ -10,6 +10,17 @@ import { WarehousesService } from '../services/warehouses.service';
 })
 export class BodyComponent {
 
+  formStyle: string = '';
+
+  openItemPopup() {
+    this.formStyle = 'item-popup-background'
+    
+  }
+
+  closePopup(){
+    this.formStyle = "item-popup-hidden "
+  }
+
   warehouseList: Warehouse[] = [];
 
   constructor(private warehouseService: WarehousesService) {
