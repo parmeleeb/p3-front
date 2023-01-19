@@ -25,7 +25,7 @@
     <div id="featured-warehouses-container"> <!-- this styling is temporary to just be able to see the data -->
         <h1 class="display-4">Featured Warehouses</h1>
 
-        <div id="featured-warehouses" *ngFor="let warehouse of warehouseList">
+        <div class="featured-warehouses" *ngFor="let warehouse of warehouseList">
             <!-- <div>{{ warehouse.getId() }}</div> -->
             <div>{{ warehouse.getName() }}</div>
             <!-- <div>{{ warehouse.getItemCapacity() }}</div> -->
@@ -54,12 +54,11 @@
         <ng-container *ngIf="formStyle">
             <div  id="item-popup-container" (click)="openItemPopup()">
                 <div class="item-left">
-                    <div id="item-title">Item 1</div>
-                    <div id="item-quantity">5</div>
-                    <div id="item-description">item description</div>
+                    <div class="item-border" id="item-title">Item 1</div>
+                    <div class="item-border" id="item-description">item description</div>
                 </div>
                 <div class='item-right'id="item-image">
-                    <img src="" alt="item image">
+                    <div id="item-quantity">5</div>
                 </div>
             </div>
 
