@@ -1,3 +1,5 @@
 <div id="nav-container">
-
+    <ng-container *ngFor="let warehouse of warehouseList">
+        <div>{{ warehouse.getName() }}</div>
+    </ng-container>
 </div>
