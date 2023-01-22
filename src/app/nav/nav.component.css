@@ -9,3 +9,14 @@
   padding-left: 1em;
   padding-top: 1em;
 }
+
+#home-button{
+  padding: 1em;
+  margin-bottom: 1em;
+  width: 85%;
+}
+
+.nav-button{
+  margin-bottom: 0.5em;
+  width: 85%;
+}

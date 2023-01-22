@@ -1,0 +1,27 @@
+<main>
+  <h2>{{ this.warehouse?.getName() }}</h2>
+
+  <div id="warehouse-location-display">
+    <div>
+      {{ this.warehouse?.getLocation()?.getStreetAddress() }},
+    </div>
+    <span>
+      {{ this.warehouse?.getLocation()?.getCity() }},
+    </span>
+    <span>
+      {{ this.warehouse?.getLocation()?.getState() }}
+    </span>
+    <span>
+      {{ this.warehouse?.getLocation()?.getPostalCode() }}
+    </span>
+  </div>
+
+  <h4>Inventory</h4>
+  <div id="item-list">
+    <ng-container *ngFor="let item of this.warehouse?.getItems()">
+      <div class="warehouse-item">
+        <span>{{ item?.getItemName() }} </span><span> ({{ item?.getItemCount() }})</span>
+      </div>
+    </ng-container>
+  </div>
+</main>

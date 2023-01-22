@@ -15,4 +15,10 @@ export class NavComponent {
   constructor(private warehouseService: WarehousesService) {
     warehouseService.warehouseObservable.subscribe(data => this.warehouseList = data);
   }
+
+  setWarehouseToDisplay(id: number) {
+    this.warehouseService.warehouseToDisplay = id;
+  }
+
+
 }
