@@ -3,12 +3,14 @@ export class Item {
   private itemName: string = '';
   private itemDescription: string = '';
   private size: number = -1;
+  private count: number = -1;
 
-  constructor(itemId:number, itemName:string, itemDescription:string, size:number) {
+  constructor(itemId:number, itemName:string, itemDescription:string, size:number, count:number) {
     this.setItemId(itemId);
     this.setItemName(itemName);
     this.setItemDescription(itemDescription);
     this.setItemSize(size);
+    this.setItemCount(count);
   }
 
   public getItemId() {
@@ -43,10 +45,19 @@ export class Item {
     this.size = size;
   }
 
+  public getItemCount() {
+    return this.count;
+  }
+
+  public setItemCount(count:number) {
+    this.count = count;
+  }
+
   public clone() {
     return new Item(this.getItemId(),
                     this.getItemName(),
                     this.getItemDescription(),
-                    this.getItemSize());
+                    this.getItemSize(),
+                    this.getItemCount());
   }
 }
