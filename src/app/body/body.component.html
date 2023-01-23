@@ -1,56 +1,23 @@
 <div id="body-container">
-    <!-- <div id="notice-container">
-        <div id="notice-board">
-            <h2 class="h2" id="notice-heading">Notices</h2>
-            <ul ng id="notice-list">
-                <li>
-                    First item
-                </li>
-                <li>
-                    Second item
-                </li>
-                <li>
-                    Third item
-                </li>
-            </ul>
-        </div>
-    </div> -->
-    <div id="nav-container">
-        <h1 class="h1">Nav</h1>
-        <div id="nav-warehouses" *ngFor="let warehouse of warehouseList">
-            <h2 class="h2"><a class="warehouse-nav" href="#">{{ warehouse.getName() }}</a></h2>
-            <p>_______________________________</p>
-        </div>
-    </div>
+
     <div id="featured-warehouses-container"> <!-- this styling is temporary to just be able to see the data -->
         <h1 class="display-4">Featured Warehouses</h1>
 
         <div class="featured-warehouses" *ngFor="let warehouse of warehouseList">
-            <!-- <div>{{ warehouse.getId() }}</div> -->
             <div>{{ warehouse.getName() }}</div>
-            <!-- <div>{{ warehouse.getItemCapacity() }}</div> -->
             <div>
                 <div>{{ warehouse.getLocation().getStreetAddress() + ", " + warehouse.getLocation().getCity() }}</div>
-                <!-- <span>{{ warehouse.getLocation().getCity() }},</span>
-                <span>{{ warehouse.getLocation().getState() }}</span>
-                <span>{{ warehouse.getLocation().getPostalCode() }}</span> -->
             </div>
-            <!-- <ng-container *ngFor="let item of warehouse.getItems()">
-                <div>{{ item.getItemId() }}</div>
-                <div>{{ item.getItemName() }}</div>
-                <div>{{ item.getItemSize() }}</div>
-                <div>{{ item.getItemDescription() }}</div>
-            </ng-container> -->
-          </div>
+        </div>
     </div>
 
 
     <!-- Item popup -->
-    <div class="space">
+    <!-- <div class="space">
         <button type="button" class="btn btn-primary" (click)="openItemPopup()">Click Item</button>
-    </div>
+    </div> -->
 
-    <div [ngClass]="formStyle" (click)="closePopup()">
+    <!-- <div [ngClass]="formStyle" (click)="closePopup()">
         <ng-container *ngIf="formStyle">
             <div  id="item-popup-container" (click)="openItemPopup()">
                 <div class="item-left">
@@ -63,5 +30,5 @@
             </div>
 
         </ng-container>
-    </div>
+    </div> -->
 </div>
