@@ -17,37 +17,38 @@
   </div>
 
   <h4>Inventory</h4>
+
   <div id="item-list">
     <ng-container *ngFor="let item of this.warehouse?.getItems()">
       <div class="space">
-        <button type="button" class="btn btn-primary" (click)="openItemPopup()">{{ item?.getItemName() }}</button>
+        <button type="button" class="btn btn-primary" (click)="openItemPopup(item)">{{ item.getItemName() }}</button>
       </div>
-      <div [ngClass]="formStyle" (click)="closePopup()">
-        <ng-container *ngIf="formStyle">
-            <div  id="item-popup-container" (click)="openItemPopup()">
-                <div class="item-left">
-                    <div class="item-border" id="item-title">{{ item?.getItemName() }}</div>
-                    <div class="item-border" id="item-description">{{ item?.getItemDescription() }}</div>
-                </div>
-                <div class='item-right'id="item-image">
-                    <span id="item-quantity">{{ item?.getItemCount() }}</span>
-                    <div id="item-size">
-                      <ng-container *ngIf=" item.getItemSize()  == 1">
-                        Small
-                      </ng-container>
-                      <ng-container *ngIf=" item.getItemSize()  == 2">
-                        Medium
-                      </ng-container>
-                      <ng-container *ngIf=" item.getItemSize()  == 3">
-                        Large
-                      </ng-container>
-                    </div>
-                    
-                </div>
+    </ng-container>
+  </div>
+
+  <div [ngClass]="formStyle" (click)="closePopup()">
+    <ng-container *ngIf="formStyle">
+        <div  id="item-popup-container">
+            <div class="item-left">
+                <div class="item-border" id="item-title">{{ selectedItem.getItemName() }}</div>
+                <div class="item-border" id="item-description">{{ selectedItem.getItemDescription() }}</div>
             </div>
-      
-        </ng-container>
-      </div>
+            <div class='item-right'id="item-image">
+                <span id="item-quantity">{{ selectedItem.getItemCount() }}</span>
+                <div id="item-size">
+                  <ng-container *ngIf=" selectedItem.getItemSize()  == 1">
+                    Small
+                  </ng-container>
+                  <ng-container *ngIf=" selectedItem.getItemSize()  == 2">
+                    Medium
+                  </ng-container>
+                  <ng-container *ngIf=" selectedItem.getItemSize()  == 3">
+                    Large
+                  </ng-container>
+                </div>
+                
+            </div>
+        </div>
     </ng-container>
   </div>
 </main>
