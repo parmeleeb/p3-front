@@ -29,7 +29,7 @@ export class WarehousesService {
                   [new Item(1,
                     "SampleItem",
                     "This is a sample item.",
-                    1,
+                    2,
                     3),
            new Item(2,
                     "SampleItem2",
@@ -167,7 +167,7 @@ export class WarehousesService {
                   [new Item(1,
                             "SampleItem",
                             "This is a sample item.",
-                            1,
+                            2,
                             3),
                    new Item(2,
                             "SampleItem2",
@@ -407,26 +407,34 @@ export class WarehousesService {
     this.update();
   }
 
-  changeItemName(warehouseId:number, itemId:number, itemName:string) {
-    let warehouse = this.findWarehouse(warehouseId);
-    if(warehouse)
-      warehouse.changeItemName(itemId, itemName);
-    this.update();
+  updateItem(warehouseId:number, itemId:number, updatedItem:Item) {
+
   }
 
-  changeItemDescription(warehouseId:number, itemId:number, itemDescription:string) {
-    let warehouse = this.findWarehouse(warehouseId);
-    if(warehouse)
-      warehouse.changeItemDescription(itemId, itemDescription);
-    this.update();
+  deleteItem(warehouseId:number, itemId:number) {
+
   }
 
-  changeItemSize(warehouseId:number, itemId:number, itemSize:number) {
-    let warehouse = this.findWarehouse(warehouseId);
-    if(warehouse)
-      warehouse.changeItemSize(itemId, itemSize);
-    this.update();
-  }
+  // changeItemName(warehouseId:number, itemId:number, itemName:string) {
+  //   let warehouse = this.findWarehouse(warehouseId);
+  //   if(warehouse)
+  //     warehouse.changeItemName(itemId, itemName);
+  //   this.update();
+  // }
+
+  // changeItemDescription(warehouseId:number, itemId:number, itemDescription:string) {
+  //   let warehouse = this.findWarehouse(warehouseId);
+  //   if(warehouse)
+  //     warehouse.changeItemDescription(itemId, itemDescription);
+  //   this.update();
+  // }
+
+  // changeItemSize(warehouseId:number, itemId:number, itemSize:number) {
+  //   let warehouse = this.findWarehouse(warehouseId);
+  //   if(warehouse)
+  //     warehouse.changeItemSize(itemId, itemSize);
+  //   this.update();
+  // }
 
 
   // (D)elete

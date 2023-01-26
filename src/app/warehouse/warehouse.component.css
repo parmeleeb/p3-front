@@ -23,6 +23,10 @@ max-height: 5.5em;
   text-align: center;
 }
 
+#warehouse-capacity-display{
+  text-align: center;
+}
+
 #item-list{
   text-align: center;
   border: black 2px solid;
@@ -37,6 +41,11 @@ max-height: 5.5em;
   grid-template-columns: 1fr 1fr 1fr;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   /* max-width: 50em; */
+}
+
+#listed-item{
+  padding-top: 1.5em;
+  border: rgb(250, 116, 68) solid 1px;
 }
 
 /* width */
@@ -108,32 +117,52 @@ max-height: 5.5em;
 .item-border{
   border-radius: 1em;
   border-style: solid;
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+}
+
+.item-option{
+  background-color: rgb(212, 131, 15);
 }
 
 #item-title{
-  display: flex;
-  justify-content: center;
+  text-align: center;
   margin-left: 3em;
+  margin-top: 1em;
 }
 
 #item-description{
-  margin-top: 7em;
+  margin-top: 3em;
   margin-left: 3em;
-  height: 10em;
+  height: 12em;
   width: 17em;
 }
 
 #item-quantity{
-  margin-right: 5em;
-  border-radius: 2em;
-  border-style: solid;
+  display: inline-block;
+  margin-top: 1em;
+  margin-right: 2em;
   padding: .5em;
-  margin-left: 2em;
+  margin-left: 1.5em;
 }
 
 #item-size{
-  display: inline-block;
-  border-radius: 2em;
-  border-style: solid;
+  margin-top: 1em;
   padding: .5em;
+}
+
+#item-close{
+  margin-top: 1em;
+  display: inline-block;
+  padding: .5em;
+}
+
+#options-container{
+  height: 6em;
+  margin-left: 4em;
+  margin-top: 6em;
+}
+
+#name-card{
+  text-align: left;
 }
