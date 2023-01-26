@@ -17,11 +17,57 @@
   </div>
 
   <h4>Inventory</h4>
+
   <div id="item-list">
     <ng-container *ngFor="let item of this.warehouse?.getItems()">
-      <div class="warehouse-item">
-        <span>{{ item?.getItemName() }} </span><span> ({{ item?.getItemCount() }})</span>
+      <div class="space">
+        <button type="button" class="btn btn-primary" (click)="openItemPopup(item)">{{ item.getItemName() }}</button>
       </div>
     </ng-container>
   </div>
+
+  <div [ngClass]="formStyle" (click)="closePopup()">
+    <ng-container *ngIf="formStyle">
+        <div  id="item-popup-container">
+            <div class="item-left">
+                <div class="item-border" id="item-title">{{ selectedItem.getItemName() }}</div>
+                <div class="item-border" id="item-description">{{ selectedItem.getItemDescription() }}</div>
+            </div>
+            <div class='item-right'id="item-image">
+                <span id="item-quantity">{{ selectedItem.getItemCount() }}</span>
+                <div id="item-size">
+                  <ng-container *ngIf=" selectedItem.getItemSize()  == 1">
+                    Small
+                  </ng-container>
+                  <ng-container *ngIf=" selectedItem.getItemSize()  == 2">
+                    Medium
+                  </ng-container>
+                  <ng-container *ngIf=" selectedItem.getItemSize()  == 3">
+                    Large
+                  </ng-container>
+                </div>
+                
+            </div>
+        </div>
+    </ng-container>
+  </div>
 </main>
+
+<!-- <div class="space">
+  <button type="button" class="btn btn-primary" (click)="openItemPopup()">Click Item</button>
+</div> -->
+
+<!-- <div [ngClass]="formStyle" (click)="closePopup()">
+  <ng-container *ngIf="formStyle">
+      <div  id="item-popup-container" (click)="openItemPopup()">
+          <div class="item-left">
+              <div class="item-border" id="item-title">Item 1</div>
+              <div class="item-border" id="item-description">item description</div>
+          </div>
+          <div class='item-right'id="item-image">
+              <div id="item-quantity">5</div>
+          </div>
+      </div>
+
+  </ng-container>
+</div> -->

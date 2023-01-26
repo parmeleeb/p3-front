@@ -1,13 +1,22 @@
 #nav-container{
   background-color: lightgray;
   height: 100%;
-  border-top-right-radius: 20px;
+  /* border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border-right: 3px black solid;
   border-top: 3px black solid;
-  border-bottom: 3px black solid;
+  border-bottom: 3px black solid; */
+  border-radius: 2em;
+  border-style: solid;
   padding-left: 1em;
   padding-top: 1em;
+  width: fit-content;
+  min-width: 10em;
+  margin-left: 2em;
+  height: fit-content;
+  min-height: 30em;
+  margin-top: 2em;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
 #home-button{
@@ -18,5 +27,6 @@
 
 .nav-button{
   margin-bottom: 0.5em;
-  width: 85%;
+  width: fit-content;
+  margin-right: .75em;
 }
