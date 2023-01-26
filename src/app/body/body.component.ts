@@ -14,7 +14,7 @@ export class BodyComponent {
 
   openItemPopup() {
     this.formStyle = 'item-popup-background'
-    
+
   }
 
   closePopup(){
@@ -33,5 +33,7 @@ export class BodyComponent {
     this.warehouseService.addWarehouse(this.warehouseToAdd);
   }
 
-
+  setWarehouseToDisplay(id: number) {
+    this.warehouseService.warehouseToDisplay = id;
+  }
 }

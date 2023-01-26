@@ -1,34 +1,35 @@
 <div id="body-container">
 
-    <div id="featured-warehouses-container"> <!-- this styling is temporary to just be able to see the data -->
-        <h1 class="display-4">Featured Warehouses</h1>
-
-        <div class="featured-warehouses" *ngFor="let warehouse of warehouseList">
-            <div>{{ warehouse.getName() }}</div>
-            <div>
-                <div>{{ warehouse.getLocation().getStreetAddress() + ", " + warehouse.getLocation().getCity() }}</div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Item popup -->
-    <!-- <div class="space">
-        <button type="button" class="btn btn-primary" (click)="openItemPopup()">Click Item</button>
-    </div> -->
-
-    <!-- <div [ngClass]="formStyle" (click)="closePopup()">
-        <ng-container *ngIf="formStyle">
-            <div  id="item-popup-container" (click)="openItemPopup()">
-                <div class="item-left">
-                    <div class="item-border" id="item-title">Item 1</div>
-                    <div class="item-border" id="item-description">item description</div>
-                </div>
-                <div class='item-right'id="item-image">
-                    <div id="item-quantity">5</div>
-                </div>
-            </div>
-
+  <div id="featured-warehouses-container"> <!-- this styling is temporary to just be able to see the data -->
+      <h1 class="display-4">Featured Warehouses</h1>
+      <ng-container *ngFor="let warehouse of warehouseList">
+          <button routerLink="/warehouse" (click)="setWarehouseToDisplay(warehouse.getId())" class="featured-warehouses">
+              <div>{{ warehouse.getName() }}</div>
+              <div>
+                  <div>{{ warehouse.getLocation().getStreetAddress() + ", " + warehouse.getLocation().getCity() + "," + warehouse.getLocation().getState() + " " + warehouse.getLocation().getPostalCode()}}</div>
+              </div>
+            </button>
         </ng-container>
-    </div> -->
+  </div>
+
+
+  <!-- Item popup -->
+  <!-- <div class="space">
+      <button type="button" class="btn btn-primary" (click)="openItemPopup()">Click Item</button>
+  </div> -->
+
+  <!-- <div [ngClass]="formStyle" (click)="closePopup()">
+      <ng-container *ngIf="formStyle">
+          <div  id="item-popup-container" (click)="openItemPopup()">
+              <div class="item-left">
+                  <div class="item-border" id="item-title">Item 1</div>
+                  <div class="item-border" id="item-description">item description</div>
+              </div>
+              <div class='item-right'id="item-image">
+                  <div id="item-quantity">5</div>
+              </div>
+          </div>
+
+      </ng-container>
+  </div> -->
 </div>
