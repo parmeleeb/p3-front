@@ -1,12 +1,13 @@
 #nav-container{
-  background-color: lightgray;
+  background-color: rgb(209, 73, 32);
   height: 100%;
-  /* border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border-right: 3px black solid;
-  border-top: 3px black solid;
-  border-bottom: 3px black solid; */
-  border-radius: 2em;
+  width: 200px;
+  /* border-top-right-radius: 20px; */
+  /* border-bottom-right-radius: 20px; */
+  /* border-right: 3px black solid; */
+  /* border-top: 3px black solid; */
+  /* border-bottom: 3px black solid; */
+  /* border-radius: 2em;
   border-style: solid;
   padding-left: 1em;
   padding-top: 1em;
@@ -15,18 +16,31 @@
   margin-left: 2em;
   height: fit-content;
   min-height: 30em;
-  margin-top: 2em;
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-}
+  margin-top: 2em;*/
+  box-shadow: rgba(0, 6, 4, 0.56) 5px 5px 10px 0px;
+ }
 
 #home-button{
+  margin-left: 1em;
   padding: 1em;
-  margin-bottom: 1em;
-  width: 85%;
+  margin: 1em 0 1em 0em;
+  border-radius: 1em;
+  width: 95%;
+  box-shadow: rgba(0, 0, 0, .5) 2.5px 5px 5px 1px;
 }
 
 .nav-button{
+  margin-left: 1em;
   margin-bottom: 0.5em;
-  width: fit-content;
+  width: 150px;
+  border-radius: .5em;
   margin-right: .75em;
+  box-shadow: rgba(0, 0, 0, .5) 3px 2px 3px .5px;
+}
+
+.warehouse-list-container{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1em;
+  gap: .5em;
 }
