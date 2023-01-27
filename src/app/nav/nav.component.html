@@ -1,12 +1,12 @@
 <div id="nav-container">
     <a routerLink="home"><button id="home-button">Home Page</button></a>
+    <div class="warehouse-list-container">
     <ng-container *ngFor="let warehouse of warehouseList">
-        <div>
           <a routerLink="warehouse">
             <button routerLink="home" class="nav-button" (click)="setWarehouseToDisplay(warehouse.getId())">
               {{ warehouse.getName() }}
             </button>
           </a>
-        </div>
-    </ng-container>
+        </ng-container>
+      </div>
 </div>

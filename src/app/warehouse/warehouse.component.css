@@ -7,9 +7,23 @@ h2{
   margin: 1em;
 }
 
+
 h4{
   text-align: center;
   margin-top: 2em;
+}
+
+#warehouse-desc {
+  /* text-align: center;
+  margin-top: auto; */
+  /* margin-bottom: auto; */
+  display: flex;
+  flex-direction: column;
+}
+
+
+.loc-display-container{
+  margin-top: -20px;
 }
 
 .warehouse-item{
@@ -21,10 +35,20 @@ max-height: 5.5em;
 
 #warehouse-location-display{
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
 }
 
 #warehouse-capacity-display{
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
   text-align: center;
+
 }
 
 #item-list{
@@ -32,7 +56,7 @@ max-height: 5.5em;
   border: black 2px solid;
   height: 300px;
   overflow-y: scroll;
-
+  border-radius: 2em;
   background-color: coral;
   margin-top: 0.5em;
   margin-left: 15%;
@@ -41,11 +65,23 @@ max-height: 5.5em;
   grid-template-columns: 1fr 1fr 1fr;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   /* max-width: 50em; */
+  scrollbar-width: none;
+}
+
+#item-list::-webkit-scrollbar {
+  display: none;
 }
 
 #listed-item{
   padding-top: 1.5em;
-  border: rgb(250, 116, 68) solid 1px;
+  border: rgb(236, 76, 18) solid 1px;
+  transition: background-color 0.5s;
+}
+
+#listed-item:hover{
+  background-color: rgb(236, 76, 18);
+  color: white;
+  cursor: pointer;
 }
 
 /* width */
@@ -166,3 +202,5 @@ max-height: 5.5em;
 #name-card{
   text-align: left;
 }
+
+

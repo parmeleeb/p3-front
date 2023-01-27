@@ -54,6 +54,15 @@
     min-width: 18em;
   }
 
+.warehouse-list-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2em;
+    margin-left: 2em;
+  }
+
 #nav-warehouses{
     display: flex;
     flex-direction: column;
@@ -70,13 +79,12 @@
 #featured-warehouses-container{
     grid-column: 1/3;
     margin-top: 2em;
-    margin-left: 5em;
-    /* display: flex; */
-    justify-content: center;
-    /* flex-direction: column; */
+    /* margin-left: 5em; */
+    text-align: center;
+    justify-content: space-around;
     max-width: 40em;
     border-radius: 2em;
-    border-style: solid;
+    /* border-style: shaded; */
     padding: .5em;
 }
 
@@ -91,15 +99,21 @@
     width: 15em;
     margin-right: 2em;
     margin-bottom: 2em;
+    box-shadow: rgba(0, 0, 0, .5) 2.5px 5px 5px 1px;
+    transition: background-color .5s, color .5s;
+    color: #242424;
 }
+
+.featured-warehouses:hover{
+    background-color: rgb(212, 131, 15);
+    color: white;
+}
+
 
 p{
     display: flex;
 }
 
-.display-4{
-    margin-left: 1.5em;
-}
 
 .item-popup-background{
     position: absolute;
@@ -154,6 +168,10 @@ p{
     margin-left: 3em;
     height: 10em;
     width: 17em;
+}
+
+.display-4 {
+  color: #242424;
 }
 
 /* Primary color= rgba(232,85,32,255) */
