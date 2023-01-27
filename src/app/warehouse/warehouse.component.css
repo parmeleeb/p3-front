@@ -7,9 +7,23 @@ h2{
   margin: 1em;
 }
 
+
 h4{
   text-align: center;
   margin-top: 2em;
+}
+
+#warehouse-desc {
+  /* text-align: center;
+  margin-top: auto; */
+  /* margin-bottom: auto; */
+  display: flex;
+  flex-direction: column;
+}
+
+
+.loc-display-container{
+  margin-top: -20px;
 }
 
 .warehouse-item{
@@ -21,10 +35,20 @@ max-height: 5.5em;
 
 #warehouse-location-display{
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
 }
 
 #warehouse-capacity-display{
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
   text-align: center;
+  
 }
 
 #item-list{
@@ -166,3 +190,5 @@ max-height: 5.5em;
 #name-card{
   text-align: left;
 }
+
+

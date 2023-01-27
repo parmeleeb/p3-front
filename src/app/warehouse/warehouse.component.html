@@ -1,127 +1,150 @@
 <main>
-  <h2>{{ this.warehouse.getName() }}</h2>
+    <div id="warehouse-desc">
+        <h2>{{ this.warehouse.getName() }}</h2>
+        <div class="warehouse-location-capacity-dislay">
+            <div id="warehouse-location-display">
 
-  <div id="warehouse-location-display">
-    <div>
-      {{ this.warehouse.getLocation().getStreetAddress() }},
-    </div>
-    <span>
-      {{ this.warehouse.getLocation().getCity() }},
-    </span>
-    <span>
-      {{ this.warehouse.getLocation().getState() }}
-    </span>
-    <span>
-      {{ this.warehouse.getLocation().getPostalCode() }}
-    </span>
-  </div>
-  <div id="warehouse-capacity-display">
-    Warehouse Capacity: {{ this.warehouse.getItemCapacity() }}
-  </div>
-
-  <h4>Inventory</h4>
-
-  <div id="item-list">
-    <ng-container *ngFor="let item of this.warehouse?.getItems()">
-      <div id="listed-item" (click)="openItemPopup(item)">{{ item.getItemName() }} ({{ item.getItemCount() }})</div>
-    </ng-container>
-  </div>
-
-  <div [ngClass]="formStyle">
-    <ng-container *ngIf="formStyle">
-
-      <!-- view item -->
-        <div *ngIf="!isOpenForEdit()" id="item-popup-container">
-            <div class="item-left">
-                <div id="item-title">
-                  <div id="name-card">Name:</div>
-                  <div class="item-border">{{ selectedItem.getItemName() }}</div>
-                </div>
-                <div id="item-description">
-                  <div>Description:</div>
-                  <div class="item-border">{{ selectedItem.getItemDescription() }}</div>
+                <div class="loc-display-container">
+                    <div>
+                        {{ this.warehouse.getLocation().getStreetAddress() }},
+                    </div>
+                    <span>
+                        {{ this.warehouse.getLocation().getCity() }},
+                    </span>
+                    <span>
+                        {{ this.warehouse.getLocation().getState() }}
+                    </span>
+                    <span>
+                        {{ this.warehouse.getLocation().getPostalCode() }}
+                    </span>
                 </div>
             </div>
-            <div class='item-right'id="item-image">
-                <span id="item-quantity">
-                  <span>Qty: </span>
-                  <span class="item-border">{{ selectedItem.getItemCount() }}</span>
-                </span>
-                <span id="item-size">
-                    <span>Size: </span>
-                    <span class="item-border">
-                      <ng-container *ngIf=" selectedItem.getItemSize()  == 1">
-                      Small
-                      </ng-container>
-                      <ng-container *ngIf=" selectedItem.getItemSize()  == 2">
-                        Medium
-                      </ng-container>
-                      <ng-container *ngIf=" selectedItem.getItemSize()  == 3">
-                        Large
-                      </ng-container>
-                    </span>
-                </span>
-                <div id="options-container">
-                  <div><button class="item-option" (click)="confirmDelete()">remove from warehouse</button></div>
-                  <div><button class="item-option" (click)="setToEdit(selectedItem.getItemId())">edit properties</button></div>
-                  <div><button class="item-option" (click)="closeItemPopup()" >return to list</button></div>
-                </div>
-
+            <div id="warehouse-capacity-display">
+                <strong>Warehouse Capacity:</strong>
+                {{ this.warehouse.getItemCapacity() }}
             </div>
         </div>
+    </div>
 
-        <!-- edit item -->
-        <div *ngIf="isOpenForEdit()" id="item-popup-container">
-          <div class="item-left">
-              <div id="item-title">
-                <div id="name-card">Name:</div>
-                <input type="text" [(ngModel)]="itemName" class="item-border">
-              </div>
-              <div id="item-description">
-                <div>Description:</div>
-                <textarea type="text" rows="5" cols="30" [(ngModel)]="itemDescription" class="item-border"></textarea>
-              </div>
-          </div>
-          <div class='item-right'id="item-image">
-              <span id="item-quantity">
-                <span>Qty: </span>
-                <input type="number" [(ngModel)]="itemQuantity" class="item-border">
-              </span>
-              <span id="item-size">
-                  <span>Size: </span>
-                  <select [(ngModel)]="itemSize">
-                    <option value="1">small</option>
-                    <option value="2">medium</option>
-                    <option value="3">large</option>
-                  </select>
-              </span>
-              <div id="options-container">
-                <span><button class="item-option" (click)="submitChanges()">confirm</button></span>
-                <span><button class="item-option" (click)="setToEdit(-1)">cancel</button></span>
-                <div><button class="item-option" (click)="closeItemPopup()" >return to list</button></div>
-              </div>
+    <h4>Inventory</h4>
 
-          </div>
-      </div>
-    </ng-container>
-  </div>
-</main>
+    <div id="item-list">
+        <ng-container *ngFor="let item of this.warehouse?.getItems()">
+            <div id="listed-item" (click)="openItemPopup(item)">{{ item.getItemName() }}
+                ({{ item.getItemCount() }})</div>
+        </ng-container>
+    </div>
 
-<!-- <div class="space">
-  <button type="button" class="btn btn-primary" (click)="openItemPopup()">Click Item</button>
-</div> -->
+    <div [ngClass]="formStyle">
+        <ng-container
+            *ngIf="formStyle">
 
-<!-- <div [ngClass]="formStyle" (click)="closePopup()">
-  <ng-container *ngIf="formStyle">
-      <div  id="item-popup-container" (click)="openItemPopup()">
-          <div class="item-left">
-              <div class="item-border" id="item-title">Item 1</div>
-              <div class="item-border" id="item-description">item description</div>
-          </div>
-          <div class='item-right'id="item-image">
-              <div id="item-quantity">5</div>
-          </div>
-      </div>
+            <!-- view item -->
+            <div *ngIf="!isOpenForEdit()" id="item-popup-container">
+                <div class="item-left">
+                    <div id="item-title">
+                        <div id="name-card">Name:</div>
+                        <div class="item-border">{{ selectedItem.getItemName() }}</div>
+                    </div>
+                    <div id="item-description">
+                        <div>Description:</div>
+                        <div class="item-border">{{ selectedItem.getItemDescription() }}</div>
+                    </div>
+                </div>
+                <div class='item-right' id="item-image">
+                    <span id="item-quantity">
+                        <span>Qty:
+                        </span>
+                        <span class="item-border">{{ selectedItem.getItemCount() }}</span>
+                    </span>
+                    <span id="item-size">
+                        <span>Size:
+                        </span>
+                        <span class="item-border">
+                            <ng-container *ngIf=" selectedItem.getItemSize()  == 1">
+                                Small
+                            </ng-container>
+                            <ng-container *ngIf=" selectedItem.getItemSize()  == 2">
+                                Medium
+                            </ng-container>
+                            <ng-container *ngIf=" selectedItem.getItemSize()  == 3">
+                                Large
+                            </ng-container>
+                        </span>
+                    </span>
+                    <div id="options-container">
+                        <div>
+                            <button class="item-option" (click)="confirmDelete()">remove from warehouse</button>
+                        </div>
+                        <div>
+                            <button class="item-option" (click)="setToEdit(selectedItem.getItemId())">edit properties</button>
+                        </div>
+                        <div>
+                            <button class="item-option" (click)="closeItemPopup()">return to list</button>
+                        </div>
+                    </div>
 
-  </ng-container>
-</div> -->
+                </div>
+            </div>
+
+            <!-- edit item -->
+            <div *ngIf="isOpenForEdit()" id="item-popup-container">
+                <div class="item-left">
+                    <div id="item-title">
+                        <div id="name-card">Name:</div>
+                        <input type="text" [(ngModel)]="itemName" class="item-border"></div>
+                        <div id="item-description">
+                            <div>Description:</div>
+                            <textarea type="text" rows="5" cols="30" [(ngModel)]="itemDescription" class="item-border"></textarea>
+                        </div>
+                    </div>
+                    <div class='item-right' id="item-image">
+                        <span id="item-quantity">
+                            <span>Qty:
+                            </span>
+                            <input type="number" [(ngModel)]="itemQuantity" class="item-border"></span>
+                            <span id="item-size">
+                                <span>Size:
+                                </span>
+                                <select [(ngModel)]="itemSize">
+                                    <option value="1">small</option>
+                                    <option value="2">medium</option>
+                                    <option value="3">large</option>
+                                </select>
+                            </span>
+                            <div id="options-container">
+                                <span>
+                                    <button class="item-option" (click)="submitChanges()">confirm</button>
+                                </span>
+                                <span>
+                                    <button class="item-option" (click)="setToEdit(-1)">cancel</button>
+                                </span>
+                                <div>
+                                    <button class="item-option" (click)="closeItemPopup()">return to list</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </main>
+
+        <!-- <div class="space">
+                          <button type="button" class="btn btn-primary" (click)="openItemPopup()">Click Item</button>
+                        </div> -->
+
+        <!-- <div [ngClass]="formStyle" (click)="closePopup()">
+                          <ng-container *ngIf="formStyle">
+                              <div  id="item-popup-container" (click)="openItemPopup()">
+                                  <div class="item-left">
+                                      <div class="item-border" id="item-title">Item 1</div>
+                                      <div class="item-border" id="item-description">item description</div>
+                                  </div>
+                                  <div class='item-right'id="item-image">
+                                      <div id="item-quantity">5</div>
+                                  </div>
+                              </div>
+
+                          </ng-container>
+                        </div> -->
