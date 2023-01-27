@@ -45,9 +45,6 @@ export class BodyComponent implements OnInit {
 
   warehouseToAdd: Warehouse = new Warehouse(-1,"",new Location("","","",-1),-1,[]);
 
-  addWarehouse() {
-    this.warehouseService.addWarehouse(this.warehouseToAdd);
-  }
 
   setWarehouseToDisplay(id: number) {
     this.warehouseService.warehouseToDisplay = id;

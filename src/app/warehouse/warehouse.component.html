@@ -21,7 +21,7 @@
             </div>
             <div id="warehouse-capacity-display">
                 <strong>Warehouse Capacity:</strong>
-                {{ this.warehouse.getItemCapacity() }}
+                {{ this.currentItemLoad }}/{{ this.warehouse.getItemCapacity() }}
             </div>
         </div>
     </div>
@@ -102,7 +102,7 @@
                         <span id="item-quantity">
                             <span>Qty:
                             </span>
-                            <input type="number" [(ngModel)]="itemQuantity" class="item-border"></span>
+                            <input type="number" min="1" [(ngModel)]="itemQuantity" class="item-border"></span>
                             <span id="item-size">
                                 <span>Size:
                                 </span>
