@@ -27,6 +27,14 @@
   border-radius: 1em;
   width: 95%;
   box-shadow: rgba(0, 0, 0, .5) 2.5px 5px 5px 1px;
+  background-color: lightgray;
+  transition: background-color 0.5s, color 0.5s;
+  color: #242424;
+}
+
+#home-button:hover{
+  background-color: rgb(212, 131, 15);
+  color: white;
 }
 
 .nav-button{
@@ -36,6 +44,14 @@
   border-radius: .5em;
   margin-right: .75em;
   box-shadow: rgba(0, 0, 0, .5) 3px 2px 3px .5px;
+  background-color: lightgray;
+  transition: background-color 0.5s, color 0.5s;
+  color:#242424;
+}
+
+.nav-button:hover{
+  background-color: rgb(212, 131, 15);
+  color: white;
 }
 
 .warehouse-list-container{
@@ -44,3 +60,5 @@
   margin-top: 1em;
   gap: .5em;
 }
+
+

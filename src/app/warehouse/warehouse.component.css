@@ -74,7 +74,14 @@ max-height: 5.5em;
 
 #listed-item{
   padding-top: 1.5em;
-  border: rgb(250, 116, 68) solid 1px;
+  border: rgb(236, 76, 18) solid 1px;
+  transition: background-color 0.5s;
+}
+
+#listed-item:hover{
+  background-color: rgb(236, 76, 18);
+  color: white;
+  cursor: pointer;
 }
 
 /* width */

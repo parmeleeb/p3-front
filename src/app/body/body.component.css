@@ -100,7 +100,15 @@
     margin-right: 2em;
     margin-bottom: 2em;
     box-shadow: rgba(0, 0, 0, .5) 2.5px 5px 5px 1px;
+    transition: background-color .5s, color .5s;
+    color: #242424;
 }
+
+.featured-warehouses:hover{
+    background-color: rgb(212, 131, 15);
+    color: white;
+}
+
 
 p{
     display: flex;
@@ -160,6 +168,10 @@ p{
     margin-left: 3em;
     height: 10em;
     width: 17em;
+}
+
+.display-4 {
+  color: #242424;
 }
 
 /* Primary color= rgba(232,85,32,255) */
