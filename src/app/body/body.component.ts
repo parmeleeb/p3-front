@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Warehouse } from '../models/warehouse.model';
 import { Location } from '../models/location.model';
 import { WarehousesService } from '../services/warehouses.service';
@@ -8,7 +8,7 @@ import { WarehousesService } from '../services/warehouses.service';
   templateUrl: './body.component.html',
   styleUrls: ['./body.component.css']
 })
-export class BodyComponent {
+export class BodyComponent implements OnInit {
 
   formStyle: string = '';
 
@@ -21,10 +21,26 @@ export class BodyComponent {
     this.formStyle = "item-popup-hidden "
   }
 
-  warehouseList: Warehouse[] = [];
+  warehouses: Warehouse[] = [];
 
   constructor(private warehouseService: WarehousesService) {
-    warehouseService.warehouseObservable.subscribe(data => this.warehouseList = data);
+  }
+
+  ngOnInit() {
+    this.warehouseService.getAllWarehouses().subscribe(data => {
+      if(data.body){
+        for(let warehouse of data.body) {
+          this.warehouses.push(new Warehouse(warehouse.id,
+                                             "warehouse #" + warehouse.id,
+                                             new Location(warehouse.location.streetAddress,
+                                                          warehouse.location.city,
+                                                          warehouse.location.state,
+                                                          warehouse.location.postalCode),
+                                             warehouse.warehouseCapacity,[]));
+        }
+        this.warehouseService.updateWarehouseList(this.warehouses);
+      }
+    });
   }
 
   warehouseToAdd: Warehouse = new Warehouse(-1,"",new Location("","","",-1),-1,[]);

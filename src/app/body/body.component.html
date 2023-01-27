@@ -2,9 +2,7 @@
 
   <div id="featured-warehouses-container"> <!-- this styling is temporary to just be able to see the data -->
       <h1 class="display-4">Featured Warehouses</h1>
-
-      <div class="warehouse-list-container">
-      <ng-container *ngFor="let warehouse of warehouseList">
+      <ng-container *ngFor="let warehouse of warehouses">
           <button routerLink="/warehouse" (click)="setWarehouseToDisplay(warehouse.getId())" class="featured-warehouses">
               <div>{{ warehouse.getName() }}</div>
               <div>
