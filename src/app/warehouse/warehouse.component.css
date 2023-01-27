@@ -73,7 +73,8 @@ max-height: 5.5em;
 }
 
 #listed-item{
-  padding-top: 1.5em;
+  height: 80px;
+  padding-top: 30px;
   border: rgb(236, 76, 18) solid 1px;
   transition: background-color 0.5s;
 }
